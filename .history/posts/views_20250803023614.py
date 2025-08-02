@@ -35,5 +35,4 @@ def homepage(request:Request):
     return Response(data=response, status=status.HTTP_200_OK)
 
 @api_view(http_method_names=["GET"])
-def list_posts(request:Request):
-    return Response(data=posts, status=status.HTTP_200_OK)
+def 

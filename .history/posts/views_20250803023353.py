@@ -6,19 +6,7 @@ from rest_framework.decorators import api_view
 
 posts = [
     {
-        "id":1,
-        "title": "learn programming",
-        "content": "a full lesson on drf"
-    },
-{
-        "id":2,
-        "title": "rust programming",
-        "content": "a short lesson on fastapi"
-    },
-    {
-        "id":3,
-        "title": "java programming",
-        "content": "a full course on kotlin"
+        "id":
     }
 ]
 
@@ -33,7 +21,3 @@ def homepage(request:Request):
     
     response={"message": "Hellow World"}
     return Response(data=response, status=status.HTTP_200_OK)
-
-@api_view(http_method_names=["GET"])
-def list_posts(request:Request):
-    return Response(data=posts, status=status.HTTP_200_OK)
