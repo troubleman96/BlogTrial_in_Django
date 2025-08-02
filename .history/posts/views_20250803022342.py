@@ -8,9 +8,7 @@ def homepage(request:Request):
 
     if request.method == "POST":
         data = request.data    
-
-        response={"message": "Hellow World", "data":data}
-        return Response(data=response, status=status.HTTP_201_CREATED)
     
+
     response={"message": "Hellow World"}
     return Response(data=response, status=status.HTTP_200_OK)

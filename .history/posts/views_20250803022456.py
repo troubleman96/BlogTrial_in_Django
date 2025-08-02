@@ -10,7 +10,8 @@ def homepage(request:Request):
         data = request.data    
 
         response={"message": "Hellow World", "data":data}
-        return Response(data=response, status=status.HTTP_201_CREATED)
+        return Response(data=)
     
+
     response={"message": "Hellow World"}
     return Response(data=response, status=status.HTTP_200_OK)

@@ -7,10 +7,8 @@ from rest_framework.decorators import api_view
 def homepage(request:Request):
 
     if request.method == "POST":
-        data = request.data    
-
-        response={"message": "Hellow World", "data":data}
-        return Response(data=response, status=status.HTTP_201_CREATED)
+        data = request.da    
     
+
     response={"message": "Hellow World"}
     return Response(data=response, status=status.HTTP_200_OK)
