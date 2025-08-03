@@ -84,6 +84,4 @@ def update_post(request:Request, post_id:int):
 def delete_post(request:Request, post_id:int):
     post = get_object_or_404(Post, pk=post_id)
 
-    post.delete()
-
-    return Response(status=status.HTTP_204_NO_CONTENT)
+    data  

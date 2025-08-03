@@ -86,4 +86,4 @@ def delete_post(request:Request, post_id:int):
 
     post.delete()
 
-    return Response(status=status.HTTP_204_NO_CONTENT)
+    return Response(status=status.)
