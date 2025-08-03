@@ -59,26 +59,5 @@ def post_detail(request:Request, post_id:int):
     return Response(data=response, status=status.HTTP_200_OK)
 
 
-@api_view(http_method_names=["PUT"])
-def update_post(request:Request, post_id:int):
-    post = get_object_or_404(Post, pk=post_id) #fetching the data from db shorcut w 404
-    
-    data = request.data
-    
-    serializer = PostSerializer(instance=post, data=data)
+def update_post(request:Request, )
 
-    if serializer.is_valid():
-        serializer.save()
-
-        response ={
-            "message": "Post Updated sucessfully!",
-            "data":serializer.data
-        }
-
-        return Response(data=response, status=status.HTTP_200_OK)
-    
-    return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-"""@api_view(http_method_names=["DELETE"])
-def delete_post(request:Request, post_id:int): """
