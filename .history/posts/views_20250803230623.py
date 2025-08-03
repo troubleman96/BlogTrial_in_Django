@@ -60,12 +60,12 @@ class PostRetrieveUpdateDeleteView(APIView):
 
         serializer = self.serializer_class(instance=post)
 
-        return Response(data=serializer.data, status=status.HTTP_200_OK)
+        return Response(data=serializer.data, status=status.HTTP_200_0K)
 
     def put(self, request:Request, post_id:int):
-        post = get_object_or_404(Post, pk=post_id) #using shortcut for getting and error
+        post = get_object_or_404(Post, pk=post_id)
 
-        data = request.data #data from the request
+        data = request.data
 
         serializer = self.serializer_class(instance=post, data=data)
 
@@ -77,17 +77,7 @@ class PostRetrieveUpdateDeleteView(APIView):
                 "data": serializer.data
             }
 
-            return Response(data=response, status=status.HTTP_200_OK)
-
-        return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)    
+            return Response(data=response, status)
         
     def delete(Self, request:Request, post_id:int):
-        post = get_object_or_404(Post, pk=post_id)
-
-        post.delete()
-
-        response = {
-            "message": "Post Deleted"
-        }
-
-        return Response(data=response, status=status.HTTP_204_NO_CONTENT)
+        pass
