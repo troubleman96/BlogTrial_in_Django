@@ -39,7 +39,7 @@ def list_posts(request:Request):
 
             return Response(data=response, status=status.HTTP_201_CREATED)
         
-        return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(data=serializer.error, status=status.HTTP_400_BAD_REQUEST)
 
     serializer = PostSerializer(instance=posts, many=True)
     

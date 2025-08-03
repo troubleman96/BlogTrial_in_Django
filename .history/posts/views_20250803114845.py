@@ -25,7 +25,7 @@ def list_posts(request:Request):
     posts = Post.objects.all() #fetching data from db
 
     if request.method == "POST":
-        data = request.data
+        data = request.data()
 
         serializer = PostSerializer(data=data)
 
@@ -36,10 +36,6 @@ def list_posts(request:Request):
                 "message":"Post created",
                 "data":serializer.data
             }
-
-            return Response(data=response, status=status.HTTP_201_CREATED)
-        
-        return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     serializer = PostSerializer(instance=posts, many=True)
     
