@@ -26,31 +26,18 @@ class PostListCreateView(APIView):
     serializer_class = PostSerializer
 
     def get(self, request:Request, *args, **kwags):
-        posts = Post.objects.all() #fetching from db
+        posts = Post.objects.all()
 
-        serializer = self.serializer_class(instance=posts, many=True) #serializing, many to convert to list
+        serializer = self.serializer_class
 
         response = {
-            "message":"posts", "data":serializer.data
+            "message":"posts", "data":serializer(posts, many=True).data
         }
 
         return Response(data=response, status=status.HTTP_200_OK)
 
     def post(self, request:Request, *args, **kwags):
-        data = request.data #data from the request
-
-        serializer = self.serializer_class(data=data) #serializing
-
-        if serializer.is_valid():
-            serializer.save() #to db
-
-            response = {
-                "message":"post created", "data":serializer.data
-            }
-
-            return Response(data=response, status=status.HTTP_201_CREATED)
-        
-        return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        pass
 
 @api_view(http_method_names=["GET"])
 def post_detail(request:Request, post_id:int):
