@@ -50,10 +50,8 @@ def list_posts(request:Request):
 def post_detail(request:Request, post_id:int):
     post = get_object_or_404(Post, pk=post_id) #shortcut for fetching the product
 
-    serializer = PostSerializer(instance=post)
+    serializer = PostSerializer
 
-    response = {
-        "message":"post", "data":serializer.data
-    }
-  
-    return Response(data=response, status=status.HTTP_200_OK)
+    
+    
+    return Response(data={"error": "Post not found"}, status=status.HTTP_404_NOT_FOUND)

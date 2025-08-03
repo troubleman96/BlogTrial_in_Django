@@ -53,7 +53,9 @@ def post_detail(request:Request, post_id:int):
     serializer = PostSerializer(instance=post)
 
     response = {
-        "message":"post", "data":serializer.data
+        "messea"
     }
-  
-    return Response(data=response, status=status.HTTP_200_OK)
+
+    
+    
+    return Response(data={"error": "Post not found"}, status=status.HTTP_404_NOT_FOUND)
