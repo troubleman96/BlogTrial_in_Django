@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.request import Request
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
-
+from .tokens import create_jwt_tokens
 
 class SignupView(generics.GenericAPIView):
     serializer_class = SignupSerializer
@@ -40,9 +40,12 @@ class LoginView(APIView):
 
         if user is not None:
             # User is authenticated
+
+            tokens = create_jwt_tokens(user)
+
             content = {
                 "message": "Login successful",
-                "token": user.auth_token.key
+                "tokens": tokens
             }
             return Response(data=content, status=status.HTTP_200_OK)
         
