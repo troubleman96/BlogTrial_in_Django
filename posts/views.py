@@ -42,6 +42,7 @@ class PostRetrieveUpdateDeleteView(generics.GenericAPIView,
                                    mixins.DestroyModelMixin):
     
     serializer_class = PostSerializer
+    queryset = Post.objects.all()
 
 
     def get(self, request:Request, *args, **kwargs):
