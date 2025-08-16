@@ -5,10 +5,11 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.request import Request
 from .serializers import PostSerializer
+from .permissions import ReadOnly
 
 class PostViewSet(viewsets.ModelViewSet):
 
-    permission_classes = [IsAuthenticated]
+    permission_classes = [ReadOnly]
 
     queryset = Post.objects.all()
     serializer_class = PostSerializer
