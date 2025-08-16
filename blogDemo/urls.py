@@ -7,10 +7,12 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 
 router.register('', PostViewSet, basename='post')
+from posts.urls import urlpatterns as posts_urls
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("posts/", include(router.urls)),
+    path("posts_extra/", include(posts_urls)),
     path('auth/', include('accounts.urls')),
 ]
